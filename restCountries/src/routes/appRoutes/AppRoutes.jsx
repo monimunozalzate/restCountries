@@ -1,0 +1,18 @@
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import NavBar from "../../components/navBar/NavBar";
+import HomePage from "../../pages/homePage/HomePage";
+import DetailsPage from "../../pages/detailsPage/DetailsPage";
+
+const AppRoutes = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<NavBar />}>
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/details" element={<DetailsPage />} />
+      </Route>
+    </Routes>
+  );
+};
+
+export default AppRoutes;

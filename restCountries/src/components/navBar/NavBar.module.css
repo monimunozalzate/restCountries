@@ -1,0 +1,28 @@
+.navBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 4rem;
+    box-shadow: 0px 10px 5px 1px rgb(0 0 0 / 17%);
+}
+
+.navBar .title {
+    font-family: var(--fontFamily);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--veryDarkBlue);
+}
+
+.navBar .mode {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navBar .mode .dark {
+    font-family: var(--fontFamily);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--veryDarkBlue);
+}
