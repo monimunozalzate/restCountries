@@ -29,8 +29,8 @@ const BlockFiltered = ({ setregionName, regionName }) => {
   const [region, setregion] = useState(null);
 
   useEffect(() => {
-    getData(GET_REGION_ASIA, region)
-    console.log(getData(GET_REGION_ASIA, region))
+    getData(handleRegion(), region)
+    console.log(getData(handleRegion(), region))
   }, [])
   
   if(!region){
