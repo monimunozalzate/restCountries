@@ -1,0 +1,23 @@
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 4rem;
+}
+
+.homeContainer .upper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+@media (max-width:600px) {
+    .homeContainer {
+        padding: 2rem;
+    }
+    .homeContainer .upper {
+        display: flex;
+        flex-direction: column;
+    }
+}
