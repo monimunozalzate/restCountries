@@ -37,7 +37,7 @@ const Filter = ({ setregionName, regionName }) => {
         labelId="demo-multiple-name-label"
         id="demo-multiple-name"
         // multiple
-        value={name}
+        value={regionName}
         onChange={handleChange}
         input={<OutlinedInput label="Name" />}
         style={{ color: `${state.text}`, padding: "0" }}

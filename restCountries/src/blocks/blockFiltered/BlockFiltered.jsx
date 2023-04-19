@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import CardCountry from "../../components/card/CardCountry";
 import { getData } from "../../services/api";
 import {
@@ -9,9 +9,12 @@ import {
   GET_REGION_OCEANIA,
 } from "../../services/endPoints";
 import Spinner from "../../components/spinner/Spinner";
+import styles from "./Blockfiltered.module.css";
+import { DarkModeContext } from "../../context/DarkmodeContext";
 
 const BlockFiltered = ({ setregionName, regionName }) => {
-  console.log(regionName);
+  const {state} = useContext(DarkModeContext)
+
   const handleRegion = () => {
     if (regionName == "Europe") {
       return GET_REGION_EUROPE;
@@ -25,27 +28,26 @@ const BlockFiltered = ({ setregionName, regionName }) => {
       return GET_REGION_OCEANIA;
     }
   };
-  console.log(handleRegion());
+  // console.log(handleRegion());
   const [region, setregion] = useState(null);
 
   useEffect(() => {
-    getData(handleRegion(), region)
-    console.log(getData(handleRegion(), region))
-  }, [])
-  
-  if(!region){
-    return <Spinner/>
+    getData(handleRegion(), region).then((res) => setregion(res.data));
+  }, []);
+
+  if (!region) {
+    return <Spinner />;
   }
 
   return (
-    <div>
-        {
-            region.map((country, index)=>{
-                return <CardCountry key={index} country={country}/>
-            })
-        }
-      
-    </div>
+    <>
+      <h1 className={styles.region} style={{color:`${state.text}`}}>{regionName}</h1>
+      <div className={styles.gridAllCountries}>
+        {region.map((country, index) => {
+          return <CardCountry key={index} country={country} />;
+        })}
+      </div>
+    </>
   );
 };
 

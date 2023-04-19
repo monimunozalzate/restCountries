@@ -1,0 +1,32 @@
+.gridAllCountries {
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 3rem;
+    grid-row-gap: 3rem;
+}
+
+.region {
+    font-family: var(--fontFamily);
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+@media (max-width: 1050px) {
+    .gridAllCountries {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    .gridAllCountries {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .gridAllCountries {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0 2rem;
+    }
+}

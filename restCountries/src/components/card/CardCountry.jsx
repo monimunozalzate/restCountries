@@ -15,7 +15,7 @@ const CardCountry = ({country}) => {
     return <Spinner/>
   };
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, backgroundColor:`${state.background}` }}>
       <CardActionArea>
         <CardMedia
           component="img"

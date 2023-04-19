@@ -6,10 +6,8 @@ import { DarkModeContext } from "../../context/DarkmodeContext";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 
 const NavBar = () => {
-
   const { state, dispatch } = useContext(DarkModeContext);
-  // console.log(state);
-
+ 
   return (
     <div
       className={styles.navBar}
@@ -29,7 +27,7 @@ const NavBar = () => {
           {state.bgFlag == "light" ? (
             <DarkModeIcon />
           ) : (
-            <LightModeOutlinedIcon style={{color: `${state.text}`}}/>
+            <LightModeOutlinedIcon style={{ color: `${state.text}` }} />
           )}
         </IconButton>
         {state.bgFlag == "light" ? (
