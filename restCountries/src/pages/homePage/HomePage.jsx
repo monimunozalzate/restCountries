@@ -1,8 +1,13 @@
 import React from 'react'
+import NavBar from '../../components/navBar/NavBar';
+import BlockHome from '../../blocks/blockHome/BlockHome';
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <>
+      <NavBar/>
+      <BlockHome/>
+    </>
   )
 }
 

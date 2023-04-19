@@ -1,13 +1,15 @@
-import React from 'react'
-import AppRoutes from './routes/appRoutes/AppRoutes';
+import React from "react";
+import AppRoutes from "./routes/appRoutes/AppRoutes";
+import DarkModeProvider, { DarkModeContext } from "./context/DarkmodeContext";
 
 function App() {
-
   return (
-    <div className="App">
-      <AppRoutes/>
-    </div>
-  )
+    <>
+      <DarkModeProvider>
+        <AppRoutes />
+      </DarkModeProvider>
+    </>
+  );
 }
 
-export default App
+export default App;

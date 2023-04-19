@@ -7,10 +7,8 @@ import DetailsPage from "../../pages/detailsPage/DetailsPage";
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<NavBar />}>
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/details" element={<DetailsPage />} />
-      </Route>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/details" element={<DetailsPage />} />
     </Routes>
   );
 };
