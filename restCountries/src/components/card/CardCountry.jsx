@@ -15,7 +15,7 @@ const CardCountry = ({country}) => {
     return <Spinner/>
   };
   return (
-    <Card sx={{ maxWidth: 345, backgroundColor:`${state.background}` }}>
+    <Card sx={{ maxWidth: 345, backgroundColor:`${state.elements}` }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -23,7 +23,7 @@ const CardCountry = ({country}) => {
           image={country.flags.png}
           alt={country.flags.alt}
         />
-        <CardContent style={{padding:'1rem 1rem 2rem', backgroundColor:`${state.background}`}}>
+        <CardContent style={{padding:'1rem 1rem 2rem', backgroundColor:`${state.elements}`}}>
           <Typography gutterBottom component="div" className={styles.name} style={{color:`${state.text}`}}>
             {country.name.common}
           </Typography>
