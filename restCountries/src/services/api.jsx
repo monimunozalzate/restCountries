@@ -19,9 +19,10 @@ export async function getData(path, setData = null) {
     }
     return response;
   } catch (error) {
-    if (error.res.status === 403) {
-      throw new Error("User not authorized");
-    } else if (error.response.status === 404) {
+    // if (error.res.status === 403) {
+    //   throw new Error("User not authorized");
+    // } 
+     if (error.response.status === 404) {
       throw new Error("Not found");
     } else if (error.request) {
       console.log(error.request);
