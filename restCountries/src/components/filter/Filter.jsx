@@ -25,7 +25,7 @@ const Filter = ({ setregionName, regionName }) => {
   return (
     <FormControl
       sx={{ m: 1, width: 300 }}
-      style={{ backgroundColor: `${state.elements}` }}
+      style={{ backgroundColor: `${state.elements}`, color: `${state.text}` }}
     >
       <InputLabel
         id="demo-multiple-name-label"

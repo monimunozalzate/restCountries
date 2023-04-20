@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import BlockDetails from "../../blocks/blockDetails/BlockDetails";
 
 const DetailsPage = () => {
   return (
-    <div>DetailsPage</div>
-  )
-}
+    <>
+      <BlockDetails />
+    </>
+  );
+};
 
-export default DetailsPage
+export default DetailsPage;

@@ -1,5 +1,4 @@
 export const GET_ALL = "all";
-export const GET_NAMES = "name";
 export const GET_REGION_EUROPE = "region/europe";
 export const GET_REGION_OCEANIA = "region/oceania";
 export const GET_REGION_ASIA = "region/asia";
