@@ -25,14 +25,14 @@ const BlockDetails = () => {
   if (!countryDetail) {
     return <Spinner />;
   }
-  console.log(countryDetail);
+  // console.log(countryDetail);
 
   return (
     <>
       <NavBar />
       <div
         style={{
-          backgroundColor: `${state.background}`
+          backgroundColor: `${state.background}`,
         }}
         className={styles.detailsContainer}
       >
@@ -44,8 +44,12 @@ const BlockDetails = () => {
           }}
           id={styles.back}
         >
-          <WestIcon />
-          <p>Back</p>
+          <WestIcon
+           
+          />
+          <p  style={{
+              color: `${state.text}`,
+            }}>Back</p>
         </Link>
         {countryDetail.map((country) => {
           return (
@@ -100,25 +104,33 @@ const BlockDetails = () => {
                     </p>
                   </div>
                 </div>
-                <div className={styles.borders}>
+                <div
+                  className={styles.borders}
+                  style={{
+                    backgroundColor: `${state.background}`,
+                  }}
+                >
                   <p style={{ width: "11rem" }}>Border Countries:</p>
-                  {(country.borders) ? (country.borders).map((border) => {
-                    return (
-                      <Link
-                        to="/"
-                        key={border}
-                        style={{
-                          color: `${state.text}`,
-                          backgroundColor: `${state.elements}`,
-                        }}
-                        className={styles.links}
-                      >
-                        {" "}
-                        {border}
-                      </Link>
-                    );
-                  }):
-                  <span>This country doesn't have borders</span>}
+                  {country.borders ? (
+                    country.borders.map((border) => {
+                      return (
+                        <Link
+                          to="/"
+                          key={border}
+                          style={{
+                            color: `${state.text}`,
+                            backgroundColor: `${state.elements}`,
+                          }}
+                          className={styles.links}
+                        >
+                          {" "}
+                          {border}
+                        </Link>
+                      );
+                    })
+                  ) : (
+                    <span>This country doesn't have borders</span>
+                  )}
                 </div>
               </section>
             </div>

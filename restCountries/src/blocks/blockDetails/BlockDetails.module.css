@@ -1,6 +1,6 @@
 .detailsContainer {
     padding: 4rem;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .detailsContainer #back {
@@ -21,6 +21,7 @@
 
 .detailsContainer #back p {
     font-family: var(--fontFamily);
+    color: var(--veryDarkBlue);
     font-size: 1rem;
 }
 
@@ -101,6 +102,9 @@
     .detailsContainer .main .right .borders {
         flex-direction: column;
         align-items: flex-start;
+        margin: 0 0;
+        padding: 0 0 2rem;
+        width: 100%;
     }
     .detailsContainer .main .right .borders .links {
         display: flex;
