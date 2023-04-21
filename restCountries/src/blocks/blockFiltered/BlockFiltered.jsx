@@ -13,7 +13,7 @@ import styles from "./Blockfiltered.module.css";
 import { DarkModeContext } from "../../context/DarkmodeContext";
 
 const BlockFiltered = ({ setregionName, regionName }) => {
-  const {state} = useContext(DarkModeContext)
+  const { state } = useContext(DarkModeContext);
 
   const handleRegion = () => {
     if (regionName == "Europe") {
@@ -32,7 +32,8 @@ const BlockFiltered = ({ setregionName, regionName }) => {
   const [region, setregion] = useState(null);
 
   useEffect(() => {
-    getData(handleRegion(), region).then((res) => setregion(res.data));
+    getData(handleRegion(), region)
+    .then((res) => setregion(res.data));
   }, []);
 
   if (!region) {
@@ -41,7 +42,9 @@ const BlockFiltered = ({ setregionName, regionName }) => {
 
   return (
     <>
-      <h1 className={styles.region} style={{color:`${state.text}`}}>{regionName}</h1>
+      <h1 className={styles.region} style={{ color: `${state.text}` }}>
+        {regionName}
+      </h1>
       <div className={styles.gridAllCountries}>
         {region.map((country, index) => {
           return <CardCountry key={index} country={country} />;

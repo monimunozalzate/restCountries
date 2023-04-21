@@ -8,14 +8,13 @@ import Spinner from "../spinner/Spinner";
 import styles from "./CardCountry.module.css";
 import { DarkModeContext } from "../../context/DarkmodeContext";
 import { Link } from "react-router-dom";
-import { getData } from "../../services/api";
 
 const CardCountry = ({ country }) => {
   const { state } = useContext(DarkModeContext);
   let countryName = country.name.common;
   countryName=countryName.toLowerCase();
   // console.log(countryName)
-  const [toDetails, settoDetails] = useState(`/name/${countryName}`)
+  const [toDetails, settoDetails] = useState(`/details/${countryName}`)
 
   if (!country) {
     return <Spinner />;

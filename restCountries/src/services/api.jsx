@@ -29,3 +29,7 @@ export async function getData(path, setData = null) {
     }
   }
 }
+
+export function replaceNamePlaceholder(endpoint, name) {
+  return endpoint.replace('{name}', name);
+}

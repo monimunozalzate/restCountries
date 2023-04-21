@@ -15,3 +15,7 @@
 .characteristics span {
     font-weight: 300 !important;
 }
+
+a {
+    text-decoration: none;
+}
