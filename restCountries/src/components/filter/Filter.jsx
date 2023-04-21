@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useTheme } from "@mui/material/styles";
+import React, { useContext } from "react";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { DarkModeContext } from "../../context/DarkmodeContext";
+import styles from './Filter.module.css'
 
 const names = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
@@ -24,8 +24,9 @@ const Filter = ({ setregionName, regionName }) => {
 
   return (
     <FormControl
+    className={styles.filterInput}
       sx={{ m: 1, width: 300 }}
-      style={{ backgroundColor: `${state.elements}`, color: `${state.text}` }}
+      style={{ backgroundColor: `${state.elements}`, color: `${state.text}`, margin: `${state.elements}`}}
     >
       <InputLabel
         id="demo-multiple-name-label"

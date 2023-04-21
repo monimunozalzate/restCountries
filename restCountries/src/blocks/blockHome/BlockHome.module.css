@@ -11,6 +11,15 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 0;
+    width: 100%;
+}
+
+.homeContainer .upper .search {
+    width: 40%;
+}
+
+.homeContainer .upper .filter {
+    width: 30%;
 }
 
 @media (max-width:600px) {
@@ -20,5 +29,7 @@
     .homeContainer .upper {
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
     }
 }

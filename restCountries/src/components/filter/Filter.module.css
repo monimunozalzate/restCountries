@@ -1,0 +1,12 @@
+.filterInput {
+    width: 20%;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15) !important;
+}
+
+@media (max-width:600px) {
+    .filterInput {
+        width: 50% !important;
+    }
+}

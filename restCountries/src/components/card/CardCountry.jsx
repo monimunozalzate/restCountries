@@ -8,19 +8,20 @@ import Spinner from "../spinner/Spinner";
 import styles from "./CardCountry.module.css";
 import { DarkModeContext } from "../../context/DarkmodeContext";
 import { Link } from "react-router-dom";
+import { scrollToTop } from "../../utils/utils";
 
 const CardCountry = ({ country }) => {
   const { state } = useContext(DarkModeContext);
   let countryName = country.name.common;
-  countryName=countryName.toLowerCase();
+  countryName = countryName.toLowerCase();
   // console.log(countryName)
-  const [toDetails, settoDetails] = useState(`/details/${countryName}`)
+  const [toDetails, settoDetails] = useState(`/details/${countryName}`);
 
   if (!country) {
     return <Spinner />;
   }
   return (
-    <Link to={toDetails}>
+    <Link to={toDetails} onClick={scrollToTop}>
       <Card sx={{ maxWidth: 345, backgroundColor: `${state.elements}` }}>
         <CardActionArea>
           <CardMedia

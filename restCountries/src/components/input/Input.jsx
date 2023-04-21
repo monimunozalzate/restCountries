@@ -4,17 +4,18 @@ import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import { DarkModeContext } from "../../context/DarkmodeContext";
+import styles from './Input.module.css'
 
 const Input = () => {
   const { state } = useContext(DarkModeContext);
   return (
     <Paper
-      component="form"
+className={styles.inputSearch}
+    component="form"
       sx={{
         p: "2px 4px",
         display: "flex",
         alignItems: "center",
-        width: 400,
         backgroundColor: `${state.elements}`,
       }}
     >

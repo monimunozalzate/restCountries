@@ -7,6 +7,7 @@ import Spinner from "../../components/spinner/Spinner";
 import WestIcon from "@mui/icons-material/West";
 import { DarkModeContext } from "../../context/DarkmodeContext";
 import styles from "./BlockDetails.module.css";
+import { scrollToTop } from "../../utils/utils";
 
 const BlockDetails = () => {
   const { name } = useParams();
@@ -28,14 +29,14 @@ const BlockDetails = () => {
   // console.log(countryDetail);
 
   return (
-    <>
+    <div
+      style={{
+        backgroundColor: `${state.background}`,
+      }}
+    >
+      {" "}
       <NavBar />
-      <div
-        style={{
-          backgroundColor: `${state.background}`,
-        }}
-        className={styles.detailsContainer}
-      >
+      <div className={styles.detailsContainer}>
         <Link
           to="/"
           style={{
@@ -44,16 +45,24 @@ const BlockDetails = () => {
           }}
           id={styles.back}
         >
-          <WestIcon
-           
-          />
-          <p  style={{
+          <WestIcon />
+          <p
+            style={{
               color: `${state.text}`,
-            }}>Back</p>
+            }}
+          >
+            Back
+          </p>
         </Link>
         {countryDetail.map((country) => {
           return (
-            <div key={country.name.common} className={styles.main}>
+            <div
+              key={country.name.common}
+              className={styles.main}
+              style={{
+                backgroundColor: `${state.background}`,
+              }}
+            >
               <section className={styles.left}>
                 <img
                   src={country.flags.png}
@@ -116,6 +125,7 @@ const BlockDetails = () => {
                       return (
                         <Link
                           to="/"
+                          onClick={scrollToTop}
                           key={border}
                           style={{
                             color: `${state.text}`,
@@ -137,7 +147,7 @@ const BlockDetails = () => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 
