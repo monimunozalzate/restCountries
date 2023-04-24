@@ -1,17 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import CardCountry from "../../components/card/CardCountry";
-import { getData } from "../../services/api";
-import { GET_ALL } from "../../services/endPoints";
 import Spinner from "../../components/spinner/Spinner";
 import styles from './BlockAllCountries.module.css'
 
-const BlockAllcountries = () => {
-  const [allCountries, setallCountries] = useState(null);
-  useEffect(() => {
-    getData(GET_ALL, setallCountries);
-  }, []);
-//   console.log(allCountries);
-
+const BlockAllcountries = ({allCountries}) => {
   if (!allCountries) {
     return <Spinner />;
   }
