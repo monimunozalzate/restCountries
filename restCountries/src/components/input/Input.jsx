@@ -1,20 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { DarkModeContext } from "../../context/DarkmodeContext";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import DirectionsIcon from "@mui/icons-material/Directions";
-import Spinner from "../../components/spinner/Spinner";
 import styles from "./Input.module.css";
 
-const Input = ({ countryName, handleCountrySearch }) => {
+const Input = ({ handleCountrySearch, disabled }) => {
   const { state } = useContext(DarkModeContext);
 
   return (
     <Paper
-    className={styles.inputSearch}
+      className={styles.inputSearch}
       component="form"
       sx={{
         p: "2px 4px",
@@ -36,6 +33,7 @@ const Input = ({ countryName, handleCountrySearch }) => {
         placeholder="Search by country..."
         inputProps={{ "aria-label": "search google maps" }}
         onChange={handleCountrySearch}
+        disabled={disabled}
       />
     </Paper>
   );

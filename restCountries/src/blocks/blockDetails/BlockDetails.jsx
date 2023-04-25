@@ -75,73 +75,79 @@ const BlockDetails = () => {
                 className={styles.right}
               >
                 <h1 className={styles.countryName}>{country.name.common}</h1>
-                <div className={styles.flex}>
-                  <div>
-                    <p>
-                      Native Name: <span>{country.name.official} </span>
-                    </p>
-                    <p>
-                      Population: <span>{country.population} </span>
-                    </p>
-                    <p>
-                      Region: <span>{country.region} </span>
-                    </p>
-                    <p>
-                      SubRegion: <span> {country.subregion}</span>
-                    </p>
-                    <p>
-                      Capital: <span>{country.capital} </span>
-                    </p>
+                <section className={styles.section}> 
+                  <div className={styles.flex}>
+                    <div>
+                      <p>
+                        Native Name: <span>{country.name.official} </span>
+                      </p>
+                      <p>
+                        Population: <span>{country.population} </span>
+                      </p>
+                      <p>
+                        Region: <span>{country.region} </span>
+                      </p>
+                      <p>
+                        SubRegion: <span> {country.subregion}</span>
+                      </p>
+                      <p>
+                        Capital: <span>{country.capital} </span>
+                      </p>
+                    </div>
+                    <div>
+                      <p>
+                        Top Level Domain: <span>{country.tld} </span>
+                      </p>
+                      <p>
+                        Currencies:
+                        {Object.entries(country.currencies).map((currencie) => {
+                          return (
+                            <span key={currencie.length}> {currencie[0]}, </span>
+                          );
+                        })}
+                      </p>
+                      <p>
+                        Languages:
+                        {Object.entries(country.languages).map(
+                          ([key, value]) => {
+                            return <span key={key}> {value}, </span>;
+                          }
+                        )}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p>
-                      Top Level Domain: <span>{country.tld} </span>
-                    </p>
-                    <p>
-                      Currencies:
-                      {Object.entries(country.currencies).map((currencie) => {
+                  <div
+                    className={styles.borders}
+                    style={{
+                      backgroundColor: `${state.background}`,
+                    }}
+                  >
+                    <p style={{ width: "11rem" }}>Border Countries:</p>
+                    {country.borders ? (
+                      country.borders.map((border) => {
                         return (
-                          <span key={currencie.length}> {currencie[0]}</span>
+                          <Link
+                            to="/"
+                            onClick={scrollToTop}
+                            key={border}
+                            style={{
+                              color: `${state.text}`,
+                              backgroundColor: `${state.elements}`,
+                            }}
+                            className={styles.links}
+                          >
+                            {" "}
+                            {border}
+                          </Link>
                         );
-                      })}
-                    </p>
-                    <p>
-                      Languages:
-                      {Object.entries(country.languages).map(([key, value]) => {
-                        return <span key={key}> {value} </span>;
-                      })}
-                    </p>
+                      })
+                    ) : (
+                      <span style={{ fontFamily: "var(--fontFamily)" }}>
+                        This country doesn't have borders
+                      </span>
+                    )}
                   </div>
-                </div>
-                <div
-                  className={styles.borders}
-                  style={{
-                    backgroundColor: `${state.background}`,
-                  }}
-                >
-                  <p style={{ width: "11rem" }}>Border Countries:</p>
-                  {country.borders ? (
-                    country.borders.map((border) => {
-                      return (
-                        <Link
-                          to="/"
-                          onClick={scrollToTop}
-                          key={border}
-                          style={{
-                            color: `${state.text}`,
-                            backgroundColor: `${state.elements}`,
-                          }}
-                          className={styles.links}
-                        >
-                          {" "}
-                          {border}
-                        </Link>
-                      );
-                    })
-                  ) : (
-                    <span>This country doesn't have borders</span>
-                  )}
-                </div>
+                </section>
               </section>
             </div>
           );

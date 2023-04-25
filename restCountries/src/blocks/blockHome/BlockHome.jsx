@@ -6,42 +6,36 @@ import { DarkModeContext } from "../../context/DarkmodeContext";
 import BlockAllcountries from "../blockAllCountries/BlockAllcountries";
 import BlockFiltered from "../blockFiltered/BlockFiltered";
 import NavBar from "../../components/navBar/NavBar";
-import { getData, replaceNamePlaceholder } from "../../services/api";
-import { GET_ALL, GET_BY_NAME } from "../../services/endPoints";
-import Spinner from "../../components/spinner/Spinner";
+import { getData } from "../../services/api";
+import { GET_ALL} from "../../services/endPoints";
 
 const BlockHome = () => {
   const { state } = useContext(DarkModeContext);
   const [regionName, setregionName] = useState([]);
-  const [allCountries, setallCountries] = useState(null);
+  const [allCountries, setallCountries] = useState([]);
   const [countryName, setcountryName] = useState("");
-
-  const endPoint = replaceNamePlaceholder(GET_BY_NAME, countryName);
+  const [countriesFiltered, setCountriesFiltered] = useState([]);
 
   useEffect(() => {
     getData(GET_ALL, setallCountries);
-    // getData(endPoint, setcountryName).then((res) =>
-    //   console.log(res.data)
-    // );
   }, []);
-  // console.log(regionName);
 
   const handleCountrySearch = (e) => {
     setcountryName(e.target.value);
-    // console.log(e)
+
     const paisesBuscados = [];
-    for(let i = 0 ; i < allCountries.length; i++){
-      if(allCountries[i].name.common.includes(e.target.value)){
+    for (let i = 0; i < allCountries.length; i++) {
+      if (
+        allCountries[i].name.common
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase())
+      ) {
         paisesBuscados.push(allCountries[i]);
       }
     }
-    console.log(paisesBuscados)
+    setCountriesFiltered(paisesBuscados);
   };
 
-
-  // if (!countryName) {
-  //   return <Spinner />;
-  // }
   return (
     <div
       style={{
@@ -55,6 +49,7 @@ const BlockHome = () => {
             className={styles.search}
             countryName={countryName}
             handleCountrySearch={handleCountrySearch}
+            disabled={!regionName.length == 0}
           />
           <Filter
             className={styles.filter}
@@ -68,7 +63,11 @@ const BlockHome = () => {
             setregionName={setregionName}
           />
         ) : (
-          <BlockAllcountries allCountries={allCountries} />
+          <BlockAllcountries
+            allCountries={
+              countriesFiltered.length > 0 ? countriesFiltered : allCountries
+            }
+          />
         )}
       </div>
     </div>
