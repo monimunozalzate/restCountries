@@ -5,7 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { DarkModeContext } from "../../context/DarkmodeContext";
-import styles from './Filter.module.css'
+import styles from "./Filter.module.css";
 
 const names = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
@@ -24,9 +24,13 @@ const Filter = ({ setregionName, regionName }) => {
 
   return (
     <FormControl
-    className={styles.filterInput}
+      className={styles.filterInput}
       sx={{ m: 1, width: 300 }}
-      style={{ backgroundColor: `${state.elements}`, color: `${state.text}`, margin: `${state.elements}`}}
+      style={{
+        backgroundColor: `${state.elements}`,
+        color: `${state.text}`,
+        margin: `${state.elements}`,
+      }}
     >
       <InputLabel
         id="demo-multiple-name-label"

@@ -1,6 +1,6 @@
 .detailsContainer {
     padding: 4rem;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .detailsContainer #back {
@@ -31,7 +31,7 @@
     flex-direction: row;
     width: 100%;
     gap: 4rem;
-    height: auto;
+    height: 100vh;
 }
 
 .detailsContainer .main .left,

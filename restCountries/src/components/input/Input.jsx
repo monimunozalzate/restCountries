@@ -1,48 +1,43 @@
 import React, { useContext } from "react";
 import { DarkModeContext } from "../../context/DarkmodeContext";
-import TextField from "@mui/material/TextField";
-import Stack from "@mui/material/Stack";
-import Autocomplete from "@mui/material/Autocomplete";
+import Paper from "@mui/material/Paper";
+import InputBase from "@mui/material/InputBase";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import SearchIcon from "@mui/icons-material/Search";
+import DirectionsIcon from "@mui/icons-material/Directions";
 import Spinner from "../../components/spinner/Spinner";
 import styles from "./Input.module.css";
 
-const Input = ({ allCountries }) => {
+const Input = ({ countryName, handleCountrySearch }) => {
   const { state } = useContext(DarkModeContext);
 
-  if (!allCountries) {
-    return <Spinner />;
-  }
   return (
-    <Stack
-      spacing={2}
+    <Paper
+    className={styles.inputSearch}
+      component="form"
       sx={{
+        p: "2px 4px",
+        display: "flex",
+        alignItems: "center",
         backgroundColor: `${state.elements}`,
         color: `${state.text}`,
       }}
-      className={styles.inputSearch}
     >
-      <Autocomplete
-        sx={{ color: `${state.text}`, backgroundColor: `${state.elements}` }}
-        freeSolo
-        id="free-solo-2-demo"
-        disableClearable
-        options={allCountries.map((option) => option.name.common)}
-        renderInput={(params) => (
-          <TextField
-            sx={{
-              color: `${state.text}`,
-              backgroundColor: `${state.elements}`,
-            }}
-            {...params}
-            label="Search for a country..."
-            InputProps={{
-              ...params.InputProps,
-              type: "search",
-            }}
-          />
-        )}
+      <IconButton
+        type="button"
+        sx={{ p: "10px", color: `${state.text}` }}
+        aria-label="search"
+      >
+        <SearchIcon />
+      </IconButton>
+      <InputBase
+        sx={{ ml: 1, flex: 1, color: `${state.text}` }}
+        placeholder="Search by country..."
+        inputProps={{ "aria-label": "search google maps" }}
+        onChange={handleCountrySearch}
       />
-    </Stack>
+    </Paper>
   );
 };
 

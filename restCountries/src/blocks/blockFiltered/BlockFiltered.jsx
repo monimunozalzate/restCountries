@@ -12,9 +12,9 @@ import Spinner from "../../components/spinner/Spinner";
 import styles from "./Blockfiltered.module.css";
 import { DarkModeContext } from "../../context/DarkmodeContext";
 
-const BlockFiltered = ({ setregionName, regionName }) => {
+const BlockFiltered = ({ regionName }) => {
   const { state } = useContext(DarkModeContext);
-
+// console.log(regionName)
   const handleRegion = () => {
     if (regionName == "Europe") {
       return GET_REGION_EUROPE;
@@ -32,9 +32,9 @@ const BlockFiltered = ({ setregionName, regionName }) => {
   const [region, setregion] = useState(null);
 
   useEffect(() => {
-    getData(handleRegion(), region)
+    getData(handleRegion(), setregion)
     .then((res) => setregion(res.data));
-  }, []);
+  }, [regionName]);
 
   if (!region) {
     return <Spinner />;
