@@ -7,7 +7,7 @@ import BlockAllcountries from "../blockAllCountries/BlockAllcountries";
 import BlockFiltered from "../blockFiltered/BlockFiltered";
 import NavBar from "../../components/navBar/NavBar";
 import { getData } from "../../services/api";
-import { GET_ALL} from "../../services/endPoints";
+import { GET_ALL } from "../../services/endpoints";
 
 const BlockHome = () => {
   const { state } = useContext(DarkModeContext);
