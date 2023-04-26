@@ -27,7 +27,7 @@
 @media (max-width: 600px) {
     .gridAllCountries {
         grid-template-columns: repeat(1, 1fr);
-        padding: 2rem 0 !important;
+        /* padding: 2rem 0 !important; */
         justify-items: center;
     }
 }

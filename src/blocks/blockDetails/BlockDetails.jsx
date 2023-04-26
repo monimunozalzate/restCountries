@@ -42,10 +42,11 @@ const BlockDetails = () => {
           style={{
             backgroundColor: `${state.elements}`,
             color: `${state.text}`,
+            textDecoration:'none'
           }}
           id={styles.back}
         >
-          <WestIcon />
+          <WestIcon sx={{fontSize:'2rem'}}/>
           <p
             style={{
               color: `${state.text}`,

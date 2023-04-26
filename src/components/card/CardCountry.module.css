@@ -16,7 +16,8 @@
     font-weight: 300 !important;
 }
 
-a {
+.toDetails {
     text-decoration: none;
     max-width: 345px;
+    padding: 0;
 }

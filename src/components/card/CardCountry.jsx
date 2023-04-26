@@ -21,8 +21,8 @@ const CardCountry = ({ country }) => {
     return <Spinner />;
   }
   return (
-    <Link to={toDetails} onClick={scrollToTop}>
-      <Card sx={{ maxWidth: 345, backgroundColor: `${state.elements}` }}>
+    <Link to={toDetails} onClick={scrollToTop} className={styles.toDetails}>
+      <Card sx={{ maxWidth: 345, minWidth:192, backgroundColor: `${state.elements}` }}>
         <CardActionArea>
           <CardMedia
             component="img"
