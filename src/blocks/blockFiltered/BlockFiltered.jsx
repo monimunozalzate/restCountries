@@ -29,7 +29,7 @@ const BlockFiltered = ({ regionName }) => {
       return GET_ALL;
     }
   };
-  console.log(handleRegion());
+  
   const [region, setregion] = useState(null);
 
   useEffect(() => {
