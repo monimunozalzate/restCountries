@@ -75,7 +75,7 @@
     align-items: center;
     flex-direction: row;
     justify-content: flex-start;
-    overflow: auto;
+    overflow: scroll;
     height: 3rem;
 }
 
