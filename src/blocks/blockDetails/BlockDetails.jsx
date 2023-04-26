@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import NavBar from "../../components/navBar/NavBar";
 import { Link, useParams } from "react-router-dom";
 import { replaceNamePlaceholder, getData } from "../../services/api";
-import { GET_BY_NAME } from "../../services/endPoints";
 import Spinner from "../../components/spinner/Spinner";
 import WestIcon from "@mui/icons-material/West";
 import { DarkModeContext } from "../../context/DarkmodeContext";
@@ -11,6 +10,7 @@ import { scrollToTop } from "../../utils/utils";
 
 const BlockDetails = () => {
   const { name } = useParams();
+  const GET_BY_NAME = `name/{name}`;
   const [countryDetail, setcountryDetail] = useState(null);
   const { state } = useContext(DarkModeContext);
 
@@ -75,7 +75,7 @@ const BlockDetails = () => {
                 className={styles.right}
               >
                 <h1 className={styles.countryName}>{country.name.common}</h1>
-                <section className={styles.section}> 
+                <section className={styles.section}>
                   <div className={styles.flex}>
                     <div>
                       <p>
@@ -102,7 +102,10 @@ const BlockDetails = () => {
                         Currencies:
                         {Object.entries(country.currencies).map((currencie) => {
                           return (
-                            <span key={currencie.length}> {currencie[0]}, </span>
+                            <span key={currencie.length}>
+                              {" "}
+                              {currencie[0]},{" "}
+                            </span>
                           );
                         })}
                       </p>

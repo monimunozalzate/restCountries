@@ -1,20 +1,19 @@
 import React, { useEffect, useState, useContext } from "react";
 import CardCountry from "../../components/card/CardCountry";
 import { getData } from "../../services/api";
-import {
-  GET_REGION_AFRICA,
-  GET_REGION_AMERICAS,
-  GET_REGION_ASIA,
-  GET_REGION_EUROPE,
-  GET_REGION_OCEANIA,
-} from "../../services/endPoints";
 import Spinner from "../../components/spinner/Spinner";
 import styles from "./Blockfiltered.module.css";
 import { DarkModeContext } from "../../context/DarkmodeContext";
 
 const BlockFiltered = ({ regionName }) => {
   const { state } = useContext(DarkModeContext);
-// console.log(regionName)
+  const GET_REGION_EUROPE = "region/europe";
+  const GET_REGION_OCEANIA = "region/oceania";
+  const GET_REGION_ASIA = "region/asia";
+  const GET_REGION_AMERICAS = "region/americas";
+  const GET_REGION_AFRICA = "region/africa";
+  const GET_ALL = "all";
+
   const handleRegion = () => {
     if (regionName == "Europe") {
       return GET_REGION_EUROPE;
@@ -26,14 +25,15 @@ const BlockFiltered = ({ regionName }) => {
       return GET_REGION_ASIA;
     } else if (regionName == "Oceania") {
       return GET_REGION_OCEANIA;
+    } else if (regionName == "Ver todos") {
+      return GET_ALL;
     }
   };
-  // console.log(handleRegion());
+  console.log(handleRegion());
   const [region, setregion] = useState(null);
 
   useEffect(() => {
-    getData(handleRegion(), setregion)
-    .then((res) => setregion(res.data));
+    getData(handleRegion(), setregion).then((res) => setregion(res.data));
   }, [regionName]);
 
   if (!region) {
@@ -42,9 +42,11 @@ const BlockFiltered = ({ regionName }) => {
 
   return (
     <>
-      <h1 className={styles.region} style={{ color: `${state.text}` }}>
-        {regionName}
-      </h1>
+      {!regionName === "Ver todos" ? (
+        <h1 className={styles.region} style={{ color: `${state.text}` }}>
+          {regionName}
+        </h1>
+      ) : null}
       <div className={styles.gridAllCountries}>
         {region.map((country, index) => {
           return <CardCountry key={index} country={country} />;
