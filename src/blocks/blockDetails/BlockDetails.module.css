@@ -67,6 +67,7 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: row;
+    width: 100%;
 }
 
 .detailsContainer .main .right .borders {
@@ -75,8 +76,9 @@
     align-items: center;
     flex-direction: row;
     justify-content: flex-start;
-    overflow: scroll;
-    height: 3rem;
+    height: 5rem;
+    width: 100%;
+    overflow-x: scroll;
 }
 
 .detailsContainer .main .right .borders .links {
@@ -93,7 +95,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 @media (max-width: 800px) {
