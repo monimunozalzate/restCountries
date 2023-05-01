@@ -50,7 +50,7 @@ const BlockHome = () => {
             className={styles.search}
             countryName={countryName}
             handleCountrySearch={handleCountrySearch}
-            disabled={!regionName.length == 0}
+            // disabled={!regionName.length == 0}
           />
           <Filter
             className={styles.filter}

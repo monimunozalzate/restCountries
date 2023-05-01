@@ -33,7 +33,7 @@ const Input = ({ handleCountrySearch, disabled }) => {
         placeholder="Search by country..."
         inputProps={{ "aria-label": "search google maps" }}
         onChange={handleCountrySearch}
-        disabled={disabled}
+        // disabled={disabled}
       />
     </Paper>
   );

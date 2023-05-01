@@ -25,7 +25,7 @@ const BlockFiltered = ({ regionName }) => {
       return GET_REGION_ASIA;
     } else if (regionName == "Oceania") {
       return GET_REGION_OCEANIA;
-    } else if (regionName == "Ver todos") {
+    } else if (regionName == "All") {
       return GET_ALL;
     }
   };
@@ -42,11 +42,11 @@ const BlockFiltered = ({ regionName }) => {
 
   return (
     <>
-      {!regionName === "Ver todos" ? (
-        <h1 className={styles.region} style={{ color: `${state.text}` }}>
-          {regionName}
-        </h1>
-      ) : null}
+      {regionName == "All" ? (
+        null
+      ) : <h1 className={styles.region} style={{ color: `${state.text}` }}>
+      {regionName}
+    </h1>}
       <div className={styles.gridAllCountries}>
         {region.map((country, index) => {
           return <CardCountry key={index} country={country} />;

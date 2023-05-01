@@ -26,7 +26,6 @@ const BlockDetails = () => {
   if (!countryDetail) {
     return <Spinner />;
   }
-  // console.log(countryDetail);
 
   return (
     <div

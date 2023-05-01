@@ -7,11 +7,10 @@ import Select from "@mui/material/Select";
 import { DarkModeContext } from "../../context/DarkmodeContext";
 import styles from "./Filter.module.css";
 
-const names = ["Ver todos", "Africa", "Americas", "Asia", "Europe", "Oceania"];
+const names = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 
 const Filter = ({ setregionName }) => {
   const { state } = useContext(DarkModeContext);
-
   const handleChange = (event) => {
     const {
       target: { value },
@@ -46,7 +45,6 @@ const Filter = ({ setregionName }) => {
         onChange={handleChange}
         input={<OutlinedInput label="Name" />}
         style={{ color: `${state.text}`, padding: "0" }}
-       
       >
         {names.map((name) => (
           <MenuItem

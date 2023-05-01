@@ -14,15 +14,23 @@ const CardCountry = ({ country }) => {
   const { state } = useContext(DarkModeContext);
   let countryName = country.name.common;
   countryName = countryName.toLowerCase();
-  // console.log(countryName)
-  const [toDetails, settoDetails] = useState(`/details/${countryName}`);
 
   if (!country) {
     return <Spinner />;
   }
   return (
-    <Link to={toDetails} onClick={scrollToTop} className={styles.toDetails}>
-      <Card sx={{ maxWidth: 345, minWidth:192, backgroundColor: `${state.elements}` }}>
+    <Link
+      to={`/details/${countryName}`}
+      onClick={scrollToTop}
+      className={styles.toDetails}
+    >
+      <Card
+        sx={{
+          maxWidth: 345,
+          minWidth: 192,
+          backgroundColor: `${state.elements}`,
+        }}
+      >
         <CardActionArea>
           <CardMedia
             component="img"
