@@ -62,6 +62,7 @@ const BlockHome = () => {
           <BlockFiltered
             regionName={regionName}
             setregionName={setregionName}
+            countriesFiltered={countriesFiltered}
           />
         ) : (
           <BlockAllcountries

@@ -5,7 +5,8 @@ import Spinner from "../../components/spinner/Spinner";
 import styles from "./Blockfiltered.module.css";
 import { DarkModeContext } from "../../context/DarkmodeContext";
 
-const BlockFiltered = ({ regionName }) => {
+const BlockFiltered = ({ regionName, countriesFiltered }) => {
+  console.log(countriesFiltered)
   const { state } = useContext(DarkModeContext);
   const GET_REGION_EUROPE = "region/europe";
   const GET_REGION_OCEANIA = "region/oceania";
@@ -36,6 +37,7 @@ const BlockFiltered = ({ regionName }) => {
     getData(handleRegion(), setregion).then((res) => setregion(res.data));
   }, [regionName]);
 
+  
   if (!region) {
     return <Spinner />;
   }
@@ -47,11 +49,19 @@ const BlockFiltered = ({ regionName }) => {
       ) : <h1 className={styles.region} style={{ color: `${state.text}` }}>
       {regionName}
     </h1>}
-      <div className={styles.gridAllCountries}>
-        {region.map((country, index) => {
-          return <CardCountry key={index} country={country} />;
-        })}
-      </div>
+   {countriesFiltered.length > 0 ? 
+     <div className={styles.gridAllCountries}>
+     {countriesFiltered.map((country, index) => {
+       return <CardCountry key={index} country={country} />;
+     })}
+   </div>:
+     <div className={styles.gridAllCountries}>
+     {region.map((country, index) => {
+       return <CardCountry key={index} country={country} />;
+     })}
+   </div>
+  }
+    
     </>
   );
 };
